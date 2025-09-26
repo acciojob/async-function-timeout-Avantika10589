@@ -1,4 +1,3 @@
-//your JS code here. If required.
 // script.js
 
 const btn = document.getElementById("btn");
@@ -14,18 +13,12 @@ async function showMessage() {
   const message = textInput.value.trim();
   const delay = Number(delayInput.value);
 
-  if (!message) {
-    outputDiv.textContent = "Please enter a message!";
-    return;
-  }
-  if (isNaN(delay) || delay < 0) {
-    outputDiv.textContent = "Please enter a valid delay in milliseconds!";
-    return;
-  }
+  if (!message) return;
+  if (isNaN(delay) || delay < 0) return;
 
-  outputDiv.textContent = "Waiting...";
-  await wait(delay); 
-  outputDiv.textContent = message; 
+  outputDiv.textContent = ""; 
+  await wait(delay);
+  outputDiv.textContent = message;
 }
 
 btn.addEventListener("click", showMessage);
